@@ -3,7 +3,7 @@ set -e
 
 { echo ""; } | crontab -
 
-if [ ! -z "$SCHEDULE" ] 
+if [ -z "$SCHEDULE" ] 
 then
 echo "SCHEDULE environment not defined! Using 0 0 * * *"
 SCHEDULE="0 0 * * *"
