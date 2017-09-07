@@ -4,6 +4,7 @@ It tars directories DIR1, DIR2, etc. defined in the DIRS environment variable in
 
 Example of use with docker-compose:
 
+```
   backup:
     image: openmrs/cron-backup:1.0.0
     depends_on:
@@ -18,3 +19,4 @@ Example of use with docker-compose:
     restart: always
     healthcheck:
       test: "exit 0"
+```
