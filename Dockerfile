@@ -8,6 +8,7 @@ RUN mkdir -p /var/log/cron && mkdir -m 0644 -p /var/spool/cron/crontabs && touch
 
 RUN mkdir /code
 ADD cron-backup.sh /code/
+ADD restore.sh /code/
 
 WORKDIR /code
 

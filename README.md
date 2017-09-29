@@ -20,3 +20,9 @@ Example of use with docker-compose:
     healthcheck:
       test: "exit 0"
 ```
+
+In order to restore backups from the BACKUP_DIR run:
+
+```
+docker-compose run --rm backup bash restore.sh 2017-09-27_00-00-01
+```
