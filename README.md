@@ -6,7 +6,7 @@ Example of use with docker-compose:
 
 ```
   backup:
-    image: openmrs/cron-backup:1.0.0
+    image: openmrs/cron-backup:latest
     depends_on:
       - api
     volumes:
@@ -25,4 +25,19 @@ In order to restore backups from the BACKUP_DIR run:
 
 ```
 docker-compose run --rm backup bash restore.sh 2017-09-27_00-00-01
+```
+
+
+It's also possible to call scripts:
+```
+  backup:
+    image: openmrs/cron-backup:latest
+    volumes:
+      - scripts:/scripts
+    environment:
+      - SCRIPT=/scripts/my_backup_script.sh
+      - SCHEDULE=0 0 * * *
+    restart: always
+    healthcheck:
+      test: "exit 0"
 ```

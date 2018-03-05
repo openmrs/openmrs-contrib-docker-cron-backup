@@ -21,4 +21,11 @@ else
   echo "DIRS environment not defined!"
 fi
 
+if [ ! -z  "$SCRIPT" ]
+then
+  crontab -l | { cat; echo "$SCHEDULE $SCRIPT"; } | crontab -
+else
+  echo "COMMAND environment not defined!"
+fi
+
 crond -s /var/spool/cron/crontabs -f -L /var/log/cron/cron.log "$@"
