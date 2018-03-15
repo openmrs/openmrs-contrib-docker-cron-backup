@@ -11,12 +11,7 @@ fi
 
 if [ ! -z "$DIRS" ] 
 then
-  for DIR in ${DIRS//,/ } 
-    do
-      DIR_PAIR=(${DIR//:/ }) 
-      COMMAND='tar -czvf /backup/'${DIR_PAIR[1]}'-`date +\%Y-\%m-\%d_\%H-\%M-\%S`.tar.gz '${DIR_PAIR[0]}
-      crontab -l | { cat; echo "$SCHEDULE $COMMAND"; } | crontab -
-  done
+  crontab -l | { cat; echo "$SCHEDULE bash $PWD/backup.sh"; } | crontab -
 else
   echo "DIRS environment not defined!"
 fi
