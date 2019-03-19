@@ -22,12 +22,12 @@ Example of use with docker-compose:
 
 In order to backup on-demand run:
 ```
-docker-compose run --rm backup bash backup.sh backup
+docker-compose run --rm backup bash backup.sh
 ```
 
 In order to restore backups from the BACKUP_DIR run:
 ```
-docker-compose run --rm backup bash backup.sh restore 2017-09-27_00-00-01
+docker-compose run --rm backup bash restore.sh 2017-09-27_00-00-01
 ```
 
 
